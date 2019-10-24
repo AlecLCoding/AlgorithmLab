@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		7030AA2C2361FB22003C3591 /* AlgorithmLab */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlgorithmLab; sourceTree = BUILT_PRODUCTS_DIR; };
 		7030AA2F2361FB22003C3591 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		7030AA362361FB56003C3591 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				7030AA2F2361FB22003C3591 /* main.c */,
+				7030AA362361FB56003C3591 /* main.h */,
 			);
 			path = AlgorithmLab;
 			sourceTree = "<group>";
