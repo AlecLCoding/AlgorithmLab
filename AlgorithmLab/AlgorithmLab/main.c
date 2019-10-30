@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <string.h>
 #include "main.h"
 
 char *exeString[] = {"Just-in-Time (JIT)","Java-Virtual-Machine (JVM)","Byte Code", "Native Or Binary", "IL", "YARV"};
@@ -32,11 +33,11 @@ int progLanguages(char *message)
     int found = -1;
     
     // These are working buffers to enable searching and displaying data
-    char displayArray[LIST][BUFFER_SIZE];  // 2D arrays
-    char exeArray[LIST][BUFFER_SIZE];
-    char langArray[LIST][BUFFER_SIZE];
+    char displayArray[LIST][SEARCH_BUFFER_SIZE];  // 2D arrays
+    char exeArray[LIST][SEARCH_BUFFER_SIZE];
+    char langArray[LIST][SEARCH_BUFFER_SIZE];
     char searchArray[LIST][SEARCH_BUFFER_SIZE];
-    char searchTerm[BUFFER_SIZE];
+    char searchTerm[SEARCH_BUFFER_SIZE];
     
     // This 1st loop makes it easy to see what to search,
     //      struct is transformed to single line to make it easier to search
