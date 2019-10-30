@@ -19,7 +19,6 @@ typedef struct language
     {
         char name[100];
         char birthdate[10];
-        char creator[80];
         EXE_TYPE exetype;
         LANG_TYPE langtype;
     }LANGUAGES;

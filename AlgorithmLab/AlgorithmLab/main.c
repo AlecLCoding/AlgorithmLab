@@ -27,10 +27,8 @@ LANGUAGES progLang[LIST] =
     };
 
 
-// progLanguages is called from my main menu
 int progLanguages(char *message)
 {
-    // Value to determine if search below produces a result
     int found = -1;
     
     // These are working buffers to enable searching and displaying data
@@ -48,7 +46,7 @@ int progLanguages(char *message)
         // p1 is pointer short cut to make references below easier to look at
         LANGUAGES *pl = &progLang[i];
         // formating data to string(s) to allow for it to be used again in function
-        sprintf(displayArray[i], "%d: \t%-10s \t\t%-15s \t%s", i, pl->name, pl->creator, pl->yob );
+        sprintf(displayArray[i], "%d: \t%-10s \t\t%-15s \t%s", i, pl->name, pl->birthdate );
         sprintf(exeArray[i], "\t%s", exeString[pl->exetype]);
         sprintf(langArray[i], "\t%s", langString[pl->langtype]);
         sprintf(searchArray[i], "%s %s %s",displayArray[i], exeArray[i], langArray[i] );
