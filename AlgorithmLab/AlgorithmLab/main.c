@@ -44,7 +44,7 @@ int progLanguages(char *message)
     //      struct is transformed to single line to make it easier to search
     printf("List of Programming Languages:\n");
     printf("ID \tName \t\t\tCreator \t\tYear\n");
-    for (int i =0; i < LIST_SIZE; i++) {
+    for (int i =0; i < LIST; i++) {
         // p1 is pointer short cut to make references below easier to look at
         LANGUAGES *pl = &progLang[i];
         // formating data to string(s) to allow for it to be used again in function
@@ -62,7 +62,7 @@ int progLanguages(char *message)
     scanf("%s", searchTerm);
     
     // This 2nd loop only prints lines that have a search term hit
-    for (int i=0; i < LIST_SIZE; i++) {
+    for (int i=0; i < LIST; i++) {
         char* p;
         p = strstr(searchArray[i], searchTerm);  // p points to address where term is found
         if (p) {
