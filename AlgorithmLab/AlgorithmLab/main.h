@@ -8,9 +8,5 @@
 
 #ifndef main_h
 #define main_h
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    structarray();
-    return 0;
-}
+
 #endif /* main_h */

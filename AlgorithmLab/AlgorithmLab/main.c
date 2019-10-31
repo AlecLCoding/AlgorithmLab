@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "main.h"
-#define LIST 10
+#define LIST_SIZE 10
 
 typedef struct language
 {
@@ -19,7 +19,7 @@ typedef struct language
     char langtype[100];
 }LANGUAGE;
 
-LANGUAGE progLang[LIST] =
+LANGUAGE progLang[LIST_SIZE] =
     {
         {"Python", "1989", "JIT", "MP"},
         {"JavaScript", "1995", "JIT", "MP"},
@@ -33,9 +33,10 @@ LANGUAGE progLang[LIST] =
         {"Ruby", "1990", "YARV", "OOP"},
     };
 
-int mainarray (void){
+
+int printFullList (void){
     int i;
-    for(i=0; i<9; i++)
+    for(i=0; i<LIST_SIZE; i++)
     {
         printf("%30s%-50s\n%30s%-50s\n%30s%-50s\n%30s%-50s\n", "Language: ", progLang[i].name, "Birth Date: ", progLang[i].date, "Execution Type: ",progLang[i].exetype, "Language Type: ",progLang[i].langtype);
       printf("\n");
@@ -43,12 +44,12 @@ int mainarray (void){
     return 0;
 }
 
-int searcharrayname(void){
+int searchForLanguage(void){
     char name[80];
-    printf("Enter Language Name: %s", name);
+    printf("Enter Language Name: ");
     scanf("%s", name);
-    for (int i = 0; i<LIST; i++){
-        if(strstr(progLang[i].name , name)!=0)
+    for (int i = 0; i<LIST_SIZE; i++){
+        if(strcasestr(progLang[i].name , name)!=0)
             {
                 printf("%30s%-50s\n%30s%-50s\n%30s%-50s\n%30s%-50s\n", "Language: ", progLang[i].name, "Birth Date: ", progLang[i].date, "Execution Type: ",progLang[i].exetype, "Language Type: ",progLang[i].langtype);
               printf("\n");
@@ -57,12 +58,12 @@ int searcharrayname(void){
         return 0;
 }
 
-int searcharraydate(void){
-    char name[80];
-    printf("Enter Language Name: %s", name);
-    scanf("%s", name);
-    for (int i = 0; i<LIST; i++){
-        if(strstr(progLang[i].date , name)!=0)
+int searchForBirthDate(void){
+    char year[80];
+    printf("Enter Birth Date: ");
+    scanf("%s", year);
+    for (int i = 0; i<LIST_SIZE; i++){
+        if(strstr(progLang[i].date , year)!=0)
             {
                 printf("%30s%-50s\n%30s%-50s\n%30s%-50s\n%30s%-50s\n", "Language: ", progLang[i].name, "Birth Date: ", progLang[i].date, "Execution Type: ",progLang[i].exetype, "Language Type: ",progLang[i].langtype);
               printf("\n");
@@ -71,12 +72,12 @@ int searcharraydate(void){
         return 0;
 }
 
-int searcharrayexe(void){
-    char name[80];
-    printf("Enter Language Name: %s", name);
-    scanf("%s", name);
-    for (int i = 0; i<LIST; i++){
-        if(strstr(progLang[i].exetype , name)!=0)
+int searchForExecutionType(void){
+    char executionType[80];
+    printf("Enter Execution Type: ");
+    scanf("%s", executionType);
+    for (int i = 0; i<LIST_SIZE; i++){
+        if(strcasestr(progLang[i].exetype , executionType)!=0)
             {
                 printf("%30s%-50s\n%30s%-50s\n%30s%-50s\n%30s%-50s\n", "Language: ", progLang[i].name, "Birth Date: ", progLang[i].date, "Execution Type: ",progLang[i].exetype, "Language Type: ",progLang[i].langtype);
               printf("\n");
@@ -85,12 +86,12 @@ int searcharrayexe(void){
         return 0;
 }
 
-int searcharraylang(void){
-    char name[80];
-    printf("Enter Language Name: %s", name);
-    scanf("%s", name);
-    for (int i = 0; i<LIST; i++){
-        if(strstr(progLang[i].langtype , name)!=0)
+int searchForLanguageType(void){
+    char languageType[80];
+    printf("Enter Language Type: ");
+    scanf("%s", languageType);
+    for (int i = 0; i<LIST_SIZE; i++){
+        if(strcasestr(progLang[i].langtype , languageType)!=0)
             {
                 printf("%30s%-50s\n%30s%-50s\n%30s%-50s\n%30s%-50s\n", "Language: ", progLang[i].name, "Birth Date: ", progLang[i].date, "Execution Type: ",progLang[i].exetype, "Language Type: ",progLang[i].langtype);
               printf("\n");
@@ -100,12 +101,11 @@ int searcharraylang(void){
 }
 
 
-int structarray(void)
+int runMenu(void)
 {
     char input;
     int endOrNo, validInput;
     endOrNo = 0;
-    char message[80];
     
     while (endOrNo == 0) {
         validInput = 0;
@@ -126,41 +126,52 @@ int structarray(void)
                 case 'a':
                 case 'A':
                     validInput = 1;
-                searcharrayname();
+                searchForLanguage();
                     break;
                     
                 case 'b':
                 case 'B':
                     validInput = 2;
-                searcharraydate();
+                searchForBirthDate();
                     break;
                     
                 case 'c':
                 case 'C':
                     validInput = 3;
-                searcharrayexe();
+                searchForExecutionType();
                     break;
                     
                 case 'd':
                 case 'D':
                     validInput = 4;
-                searcharraylang();
+                searchForLanguageType();
                     break;
                     
                 case 'e':
                 case 'E':
                     validInput = 7;
-                    mainarray();
+                    printFullList();
                     break;
                     
-                case 0:
+                case '0':
                     validInput = 99;
                     endOrNo = 1;
                     break;
                     
+                default:
+                    if (input != '\n') {
+                        printf("Invalid Input, Try Again\n");
+                    }
+                    break;
             }
         }
     }
+    return 0;
+}
+
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    runMenu();
     return 0;
 }
 
